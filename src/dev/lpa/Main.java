@@ -17,8 +17,8 @@ public class Main {
 
         Thread threadWRunnableOdds = new Thread(new myRunnable());
 
-        threadWConstructorEven.start();
         threadWRunnableOdds.start();
+        threadWConstructorEven.start();
 
     }
 
