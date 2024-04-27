@@ -31,7 +31,7 @@ public class Main {
 
     }
 
-    private static class myRunnable implements Runnable{
+    private static class myRunnable extends Thread{
 
         @Override
         public void run() {
