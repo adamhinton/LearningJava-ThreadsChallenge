@@ -8,7 +8,7 @@ public class Main {
                try {
                    Thread.sleep(250);
                } catch (InterruptedException e) {
-                   throw new RuntimeException(e);
+                   e.printStackTrace();
                }
                System.out.println(i);
            }
@@ -20,6 +20,15 @@ public class Main {
         threadWRunnableOdds.start();
         threadWConstructorEven.start();
 
+        try {
+            Thread.sleep(250);  // Corrected line: use sleep instead of wait
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+        threadWRunnableOdds.interrupt();
+
     }
 
     private static class myRunnable implements Runnable{
@@ -30,7 +39,8 @@ public class Main {
                 try {
                     Thread.sleep(250);
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                    System.out.println("Thread interrupted, exiting gracefully");
+                    return;
                 }
                 System.out.println(i);
             }
